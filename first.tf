@@ -8,8 +8,17 @@ provider "azurerm" {
   features {}
 }
 
+terraform {
+    backend "azurerm" {
+        resource_group_name ="rg2"
+        storage_account_name = "rg2strorage"
+        container_name = "con1"
+        key = "terraform.tfstate"
+    }
+}
+
 resource "azurerm_resource_group" "demo1" {
-  name     = "testrg1trainer3"
+  name     = "khan1"
   location = "eastus"
   tags = {
       env = "resource-group-demo"
@@ -18,6 +27,6 @@ resource "azurerm_resource_group" "demo1" {
 }
 
 resource "azurerm_resource_group" "demo2" {
- name     = "testrg2trainer"
+ name     = "khan2"
   location = "southindia"
 }
